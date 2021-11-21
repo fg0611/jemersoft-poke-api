@@ -63,8 +63,11 @@ const getNpokes = async (req, res, next) => {
 const getByIdOrName = async (req, res, next) => {
   try {
     const { idOrName } = req.params;
+    let ID = parseInt(idOrName) > 0 ? idOrName : null;
+    let NAME = ID == null ? idOrName.toLowerCase() : null;
+
     const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${idOrName}`
+      `https://pokeapi.co/api/v2/pokemon/${ID || NAME}`
     );
     const { name, type, weight, types, abilities, moves, sprites } = data;
 
