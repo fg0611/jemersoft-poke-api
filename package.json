@@ -4,10 +4,10 @@
   "description": "Automatically generate swagger docs based on jsdocs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "author": "",
+  "author": "fg0611",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",

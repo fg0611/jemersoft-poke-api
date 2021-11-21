@@ -16,7 +16,6 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const app = express();
-const cors = require("cors");
 
 app.use("/poke-api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use("/", routes);
