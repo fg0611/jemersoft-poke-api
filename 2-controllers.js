@@ -1,5 +1,17 @@
 const axios = require("axios");
 
+const getHome = async (req, res, next) => {
+  try {
+    return res.json({
+      Title: "Jemersoft test/challenge",
+      Techs: "javascript, node, express, swagger & others",
+      SwaggerDocs: "https://jemersoft-poke-api.herokuapp.com/poke-api-docs",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // get 20 pokes by default
 const getDefault = async (req, res, next) => {
   try {
@@ -93,6 +105,7 @@ const getByIdOrName = async (req, res, next) => {
 };
 
 module.exports = {
+  getHome,
   getDefault,
   getNpokes,
   getByIdOrName,

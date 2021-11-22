@@ -2,6 +2,8 @@ const { Router } = require("express");
 const router = Router();
 const controllers = require("./2-controllers");
 
+router.get("/", controllers.getHome);
+
 /**
  * @swagger
  * /pokemons:
