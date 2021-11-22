@@ -6,7 +6,7 @@ router.get("/", controllers.getHome);
 
 /**
  * @swagger
- * /pokemons:
+ * /pokemons/default:
  *   get:
  *     summary: Get 20 Pokes by Default
  *     tags: [Pokemons]
