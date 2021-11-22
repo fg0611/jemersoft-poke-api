@@ -81,7 +81,16 @@ const getByIdOrName = async (req, res, next) => {
     const { data } = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${ID || NAME}`
     );
-    const { name, type, weight, types, abilities, moves, sprites } = data;
+    const {
+      name,
+      type,
+      weight,
+      types,
+      abilities,
+      moves,
+      sprites,
+      description,
+    } = data;
 
     const result = {
       name,
@@ -97,6 +106,7 @@ const getByIdOrName = async (req, res, next) => {
         return a.move.name;
       }),
       img: sprites.front_default,
+      description,
     };
     return res.json(result);
   } catch (error) {
