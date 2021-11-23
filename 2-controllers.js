@@ -1,4 +1,6 @@
 const axios = require("axios");
+require("dotenv").config();
+const URL = process.env.URL;
 
 const getHome = async (req, res, next) => {
   try {
@@ -15,7 +17,8 @@ const getHome = async (req, res, next) => {
 // get 20 pokes by default
 const getDefault = async (req, res, next) => {
   try {
-    const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
+    console.log(URL);
+    const { data } = await axios.get(URL);
     return res.json(data.results);
   } catch (error) {
     next(error);
@@ -25,7 +28,7 @@ const getDefault = async (req, res, next) => {
 // get any Given number of pokes by params
 const getNpokes = async (req, res, next) => {
   let pokeList = [];
-  let page = "https://pokeapi.co/api/v2/pokemon/";
+  let page = URL;
 
   try {
     const n = req.params?.nPokes;
@@ -78,9 +81,7 @@ const getByIdOrName = async (req, res, next) => {
     let ID = parseInt(idOrName) > 0 ? idOrName : null;
     let NAME = ID == null ? idOrName.toLowerCase() : null;
 
-    const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${ID || NAME}`
-    );
+    const { data } = await axios.get(`${URL}${ID || NAME}`);
     const {
       name,
       type,
