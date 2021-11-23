@@ -1,5 +1,5 @@
 // Imports the Google Cloud Translation library
-var api = process.env.API || "AIzaSyDBKINbXrO-q7ParEXSTKNFm_yc8Nn9Xic";
+var api = process.env.API;
 var googleTranslate = require("google-translate")(api);
 
 function trans() {
